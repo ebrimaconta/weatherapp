@@ -34,8 +34,8 @@ Ensure you have the following installed on your system:
 
 3. Configure API Key:
 
-   - Open `redux/weatherslice.ts`.
-   - Add your **WeatherAPI** key to the `API_KEY` variable.
+   - Create `.env` file.
+   - Add your **WeatherAPI** key with the variable name `WEATHER_APP` .
 
 4. Start the development server:
 

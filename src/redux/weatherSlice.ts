@@ -2,8 +2,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_KEY = '71f74b2c269544c1868191744250603';
-
 interface CityWeather {
   name: string;
   temperature: number;
@@ -29,7 +27,7 @@ const initialState: WeatherState = {
 export const fetchWeather = createAsyncThunk('weather/fetchWeather', async (city: string) => {
   try {
     const response = await axios.get(
-      `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=5&aqi=no&alerts=no`
+      `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_APP}&q=${city}&days=5&aqi=no&alerts=no`
     );
 
     if (!response.data || !response.data.location || !response.data.current || !response.data.forecast) {
