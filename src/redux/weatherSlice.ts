@@ -2,7 +2,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_KEY = '';
+const API_KEY = '71f74b2c269544c1868191744250603';
 
 interface CityWeather {
   name: string;
@@ -58,13 +58,11 @@ export const weatherSlice = createSlice({
     pinCity: (state, action) => {
       if (!state.pinnedCities.includes(action.payload)) {
         state.pinnedCities.push(action.payload);
-        localStorage.setItem('pinnedCities', JSON.stringify(state.pinnedCities));
       }
     },
     removeCity: (state, action) => {
       state.cities = state.cities.filter((city) => city.name !== action.payload);
       state.pinnedCities = state.pinnedCities.filter((city) => city !== action.payload);
-      localStorage.setItem('pinnedCities', JSON.stringify(state.pinnedCities));
     },
   },
   extraReducers: (builder) => {
